@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Dev Game Console</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; padding: 20px; background: #f0f2f5; }
+        .step { background: white; margin: 10px 0; padding: 15px; border-radius: 10px; border-left: 5px solid #ccc; }
+        .active { border-left-color: #007AFF; }
+        .archived { opacity: 0.5; text-decoration: line-through; }
+        button { padding: 10px; margin-top: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>FlowTask: Dashboard</h1>
+    <div id="steps-container">
+        <div class="step active">
+            <h3>Шаг 001: Инициализация API</h3>
+            <p>Статус: В работе</p>
+            <button onclick="archiveStep(1)">Архивировать</button>
+        </div>
+    </div>
+
+    <script>
+        function archiveStep(id) {
+            alert("Шаг " + id + " отправлен в архив через GitHub Actions API");
+            // Здесь будет логика вызова вашего Workflow через API
+        }
+    </script>
+</body>
+</html>
