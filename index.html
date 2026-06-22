@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowTask Control</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #121212; color: #fff; padding: 20px; margin: 0; }
+        h1 { font-size: 1.2rem; color: #007AFF; }
+        textarea { width: 100%; height: 120px; background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 10px; padding: 15px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 15px; background: #007AFF; border: none; border-radius: 10px; color: #fff; font-size: 18px; margin-top: 10px; cursor: pointer; }
+        .status { margin-top: 20px; padding: 15px; background: #1e1e1e; border-radius: 10px; }
+    </style>
+</head>
 <body>
-    <h1>Панель управления</h1>
-    <textarea id="prompt" placeholder="Что сделать?"></textarea><br>
-    <button onclick="run()">Запустить</button>
+    <h1>FlowTask</h1>
+    <textarea id="prompt" placeholder="Введите задачу для ИИ..."></textarea>
+    <button onclick="triggerTask()">Запустить задачу</button>
+    
+    <div class="status" id="status">Статус: Ожидание...</div>
 
     <script>
-    async function run() {
-        const prompt = document.getElementById('prompt').value;
-        const response = await fetch('https://api.github.com/repos/eqlectika/FlowTask-Private/dispatches', {
-            method: 'POST',
-            headers: { 'Authorization': 'token ВАШ_ТОКЕН', 'Accept': 'application/vnd.github.v3+json' },
-            body: JSON.stringify({ event_type: 'run_ai', client_payload: { prompt: prompt } })
-        });
-        alert(response.ok ? 'Задача запущена!' : 'Ошибка');
-    }
+        async function triggerTask() {
+            document.getElementById('status').innerText = 'Статус: Отправка...';
+            // Здесь будет логика отправки в ваш Workflow
+            alert('Задача отправлена в обработку');
+            document.getElementById('status').innerText = 'Статус: Выполняется...';
+        }
     </script>
 </body>
 </html>
