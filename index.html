@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <title>FlowTask Control</title>
+    <!-- PWA манифест и мета-теги для iOS -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FlowTask">
+    
     <style>
         body { font-family: -apple-system, sans-serif; background: #121212; color: #fff; padding: 20px; margin: 0; }
         h1 { font-size: 1.2rem; color: #007AFF; }
         textarea { width: 100%; height: 120px; background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 10px; padding: 15px; box-sizing: border-box; font-size: 16px; }
         button { width: 100%; padding: 15px; background: #007AFF; border: none; border-radius: 10px; color: #fff; font-size: 18px; margin-top: 10px; cursor: pointer; }
-        .status { margin-top: 20px; padding: 15px; background: #1e1e1e; border-radius: 10px; }
+        .status { margin-top: 20px; padding: 15px; background: #1e1e1e; border-radius: 10px; border-left: 5px solid #007AFF; }
     </style>
 </head>
 <body>
     <h1>FlowTask</h1>
-    <textarea id="prompt" placeholder="Введите задачу для ИИ..."></textarea>
+    <textarea id="prompt" placeholder="Введите задачу..."></textarea>
     <button onclick="triggerTask()">Запустить задачу</button>
     
-    <div class="status" id="status">Статус: Ожидание...</div>
+    <div class="status" id="status">Статус: Ожидание ввода</div>
 
     <script>
         async function triggerTask() {
-            document.getElementById('status').innerText = 'Статус: Отправка...';
-            // Здесь будет логика отправки в ваш Workflow
-            alert('Задача отправлена в обработку');
-            document.getElementById('status').innerText = 'Статус: Выполняется...';
+            const statusDiv = document.getElementById('status');
+            const promptText = document.getElementById('prompt').value;
+            
+            if (!promptText) return alert('Введите задачу!');
+
+            statusDiv.innerText = 'Статус: Отправка запроса...';
+            
+            // Здесь будет ваш API-запрос к GitHub Actions
+            console.log('Отправка задачи:', promptText);
+            
+            // Имитация ответа для теста
+            setTimeout(() => {
+                statusDiv.innerText = 'Статус: Запрос принят GitHub Actions';
+            }, 1000);
         }
     </script>
 </body>
