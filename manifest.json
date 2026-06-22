@@ -1,0 +1,15 @@
+{
+  "name": "FlowTask Control",
+  "short_name": "FlowTask",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#007AFF",
+  "icons": [
+    {
+      "src": "https://github.githubassets.com/favicons/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
