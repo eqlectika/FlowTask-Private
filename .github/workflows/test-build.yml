@@ -2,7 +2,7 @@ name: iOS Smoke Build
 
 on:
   repository_dispatch:
-    types: [run_test_build]
+    types: [run_ios-test_build]
 
 jobs:
   build:
