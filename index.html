@@ -56,9 +56,9 @@
     <textarea id="prompt" placeholder="Enter task..."></textarea>
     
         <select id="taskMode" class="mode-container">
-            <option value="run_deploy">AI Only (Fast response / AI Worker)</option>
-            <option value="run_ios_test_build">iOS Test Build (No signing / Simulator)</option>
-            <option value="run_ai_deploy">AI + iOS Build and Deploy (Full Deploy)</option>
+            <option value="run_worker_build">Run Worker Build</option>
+            <option value="run_ios_test_build">Run iOS Test Build</option>
+            <option value="run_app_deploy">Run iOS App Build and Deploy</option>
         </select>
 
     <button onclick="triggerTask()">Run Task</button>
